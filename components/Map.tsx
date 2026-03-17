@@ -8,10 +8,14 @@ type Place = {
   _id?: string;
   name: string;
   category: string;
-  area: string;
+  area?: string;
   location: {
-    coordinates: [number, number];
+    coordinates: [number, number]; // [lng, lat]
   };
+  openTime?: string;
+  closeTime?: string;
+  description?: string;
+  tags?: string[];
 };
 
 const defaultPosition: [number, number] = [12.9716, 77.5946]; // Bengaluru
@@ -47,11 +51,23 @@ export default function Map({ places }: { places: Place[] }) {
             place.location.coordinates[0],
           ]}
         >
-          <Popup>
-            <div>
-              <h3 className="font-bold">{place.name}</h3>
-              <p>{place.category}</p>
-              <p>{place.area}</p>
+        <Popup>
+            <div className="space-y-1">
+              <h3 className="font-bold text-lg">{place.name}</h3>
+
+              <p className="text-sm text-gray-600">
+                {place.category} • {place.area}
+              </p>
+
+              {place.openTime && place.closeTime && (
+                <p className="text-sm">
+                   {place.openTime} - {place.closeTime}
+                </p>
+              )}
+
+              {place.description && (
+                <p className="text-sm">{place.description}</p>
+              )}
             </div>
           </Popup>
         </Marker>

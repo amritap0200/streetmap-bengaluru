@@ -12,7 +12,10 @@ export default function Home() {
   useEffect(() => {
     fetch("/api/places")
       .then((res) => res.json())
-      .then((data) => setPlaces(data));
+      .then((data) => {
+        console.log("Fetched places:", data); // debug
+        setPlaces(data);
+      });
   }, []);
 
   return (
