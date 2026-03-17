@@ -1,0 +1,27 @@
+[
+  { "name": "CTR Malleshwaram", "category": "cafe", "lat": 12.9916, "lng": 77.5706, "area": "malleshwaram", "tags": ["breakfast","dosa"] },
+  { "name": "Rameshwaram Cafe", "category": "cafe", "lat": 12.9718, "lng": 77.6412, "area": "indiranagar", "tags": ["breakfast"] },
+  { "name": "Airlines Hotel", "category": "cafe", "lat": 12.9716, "lng": 77.5946, "area": "lavelle road", "tags": ["breakfast","coffee"] },
+  { "name": "SLV Tiffins", "category": "cafe", "lat": 12.9279, "lng": 77.6271, "area": "btm", "tags": ["breakfast"] },
+  { "name": "Udupi Palace", "category": "cafe", "lat": 12.9352, "lng": 77.6245, "area": "jayanagar", "tags": ["breakfast"] },
+
+  { "name": "Third Wave Coffee", "category": "cafe", "lat": 12.9719, "lng": 77.6410, "area": "indiranagar", "tags": ["work","coffee"] },
+  { "name": "Truffles", "category": "cafe", "lat": 12.9350, "lng": 77.6140, "area": "koramangala", "tags": ["burgers"] },
+  { "name": "Empire Restaurant", "category": "restaurant", "lat": 12.9611, "lng": 77.6387, "area": "indiranagar", "tags": ["late-night"] },
+
+  { "name": "Cubbon Park", "category": "park", "lat": 12.9763, "lng": 77.5929, "area": "central", "tags": ["walk","morning"] },
+  { "name": "Lalbagh Botanical Garden", "category": "park", "lat": 12.9507, "lng": 77.5848, "area": "lalbagh", "tags": ["walk","nature"] },
+  { "name": "JP Park", "category": "park", "lat": 13.0358, "lng": 77.5547, "area": "mathikere", "tags": ["walk"] },
+  { "name": "Agara Lake Park", "category": "park", "lat": 12.9121, "lng": 77.6762, "area": "hsr", "tags": ["lake","walk"] },
+
+  { "name": "MG Road Metro", "category": "metro", "lat": 12.9756, "lng": 77.6050, "area": "mg road", "tags": [] },
+  { "name": "Indiranagar Metro", "category": "metro", "lat": 12.9784, "lng": 77.6408, "area": "indiranagar", "tags": [] },
+  { "name": "Majestic Metro", "category": "metro", "lat": 12.9767, "lng": 77.5713, "area": "majestic", "tags": [] },
+
+  { "name": "Majestic Bus Stand", "category": "bmtc", "lat": 12.9767, "lng": 77.5713, "area": "majestic", "tags": [] },
+  { "name": "Silk Board Bus Stop", "category": "bmtc", "lat": 12.9176, "lng": 77.6230, "area": "silk board", "tags": [] },
+  { "name": "Banashankari Bus Stand", "category": "bmtc", "lat": 12.9250, "lng": 77.5468, "area": "banashankari", "tags": [] },
+
+  { "name": "Samosa Party", "category": "cafe", "lat": 12.9345, "lng": 77.6115, "area": "koramangala", "tags": ["snacks"] },
+  { "name": "Corner House", "category": "cafe", "lat": 12.9720, "lng": 77.6400, "area": "indiranagar", "tags": ["dessert"] }
+]
