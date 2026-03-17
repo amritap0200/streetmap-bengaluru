@@ -15,7 +15,11 @@ for (let p of data) {
       coordinates: [p.lng, p.lat]
     },
     area: p.area,
-    tags: p.tags
+    tags: p.tags,
+    openTime: p.openTime,
+    closeTime: p.closeTime,
+    rating: p.rating,
+    description: p.description
   });
 }
 

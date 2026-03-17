@@ -32,6 +32,10 @@ async function importData() {
       },
       area: p.area,
       tags: p.tags || [],
+      openTime: p.openTime,
+      closeTime: p.closeTime,
+      rating: p.rating,
+      description: p.description,
     }));
 
     await Place.insertMany(formattedData);
