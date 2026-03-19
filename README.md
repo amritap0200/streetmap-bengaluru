@@ -1,4 +1,4 @@
-# StreetMap Bengaluru — Time-Aware Community Map for Bengaluru
+# StreetMap Bengaluru - Time-Aware Community Map for Bengaluru
 
 ## Overview
 
@@ -12,10 +12,10 @@ It enhances traditional maps by introducing contextual, time-based discovery and
 
 Users often struggle to find relevant places at specific times of the day due to:
 
-- Inaccurate or outdated timings  
-- Lack of time-based filtering  
-- Poor visibility of local and niche spots  
-- Static map experiences  
+- Inaccurate or outdated timings
+- Lack of time-based filtering
+- Poor visibility of local and niche spots
+- Static map experiences
 
 ---
 
@@ -27,6 +27,8 @@ StreetMap Bengaluru provides:
 - Category-based maps (cafes, parks, metro, BMTC)  
 - Location and tag-based filtering  
 - Community-driven place contributions  
+
+Also, it intends to provide the functionality for users to find places and leave 
 
 ---
 
@@ -67,7 +69,34 @@ WHEN → Footer Modes
 
 ### Community Features
 - Add places  
-- Add tags and descriptions  
+- Add tags and descriptions
+
+### Community Layer (In Progress)
+We are building a social layer on top of the map where users can leave comments,
+recommendations, photos, and short videos tied to specific places. The goal is to
+turn each place entry into a living discussion thread — part review platform, part
+local forum. Think of it as community-sourced ground truth for a city, where
+regulars can share things that never make it onto Google Maps: the best seat in
+a café, which hours to avoid, or a hidden entrance to a park.
+
+### Mood-Based Recommendation Engine (Planned)
+We are working on a lightweight recommendation engine that takes user-defined
+inputs — mood, energy level, preferred vibe, time of day — and surfaces relevant
+places including lesser-known spots that would otherwise not appear in standard
+searches. The intent is to move beyond category filters and into intent-aware
+discovery, so the map can answer questions like "I want somewhere quiet and
+green, post-lunch, near Koramangala" without the user needing to manually
+configure every filter.
+
+### Verified Local Contributions
+A structured way for locals and regulars to submit edits, flag outdated timings,
+and add context that static data sources miss. Contributions will be
+community-reviewed before going live.
+
+### Activity Signals
+Surface real-time or historically-derived signals like crowd levels, typical wait
+times, and best-visit windows — sourced from community input rather than
+proprietary APIs, keeping the project fully open.
 
 ---
 
