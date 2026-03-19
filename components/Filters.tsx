@@ -64,7 +64,7 @@ export default function Filters({ filters, setFilters }: Props) {
 
   return (
     <div className="pointer-events-none absolute inset-y-0 left-0 top-0 z-[1000] w-full p-0 md:w-[28%] md:min-w-[380px] md:max-w-[620px]">
-      <div className="pointer-events-auto flex h-full flex-col overflow-hidden rounded-none bg-[#222222]/95 p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.28)] ring-1 ring-black/10 backdrop-blur md:border-r md:border-white/10">
+      <div className="pointer-events-auto flex h-full flex-col overflow-hidden rounded-none bg-[#222222] p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.28)] ring-1 ring-black/10 backdrop-blur md:border-r md:border-white/10">
         <div className="mb-4 flex items-center justify-center border-b border-white/8 pb-4">
           <div className="text-center">
             <p className="text-sm font-semibold tracking-tight">Filters</p>
