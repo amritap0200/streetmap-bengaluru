@@ -21,7 +21,18 @@ export async function GET(req: NextRequest) {
     }
 
     if (area) {
-      query.area = area.trim().toLowerCase();
+      const areas = area
+        .split(",")
+        .map((value) => value.trim().toLowerCase())
+        .filter(Boolean);
+
+      if (areas.length === 1) {
+        query.area = areas[0];
+      }
+
+      if (areas.length > 1) {
+        query.area = { $in: areas };
+      }
     }
 
     if (tag) {

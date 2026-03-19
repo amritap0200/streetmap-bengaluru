@@ -14,10 +14,10 @@ export default function Home() {
   const [places, setPlaces] = useState([]);
   const [mapType, setMapType] = useState("normal");
   const [filters, setFilters] = useState({
-    area: "",
+    areas: [] as string[],
     openNow: false,
     tag: "",
-    rating: ""
+    rating: "",
   });
 
 
@@ -28,8 +28,8 @@ export default function Home() {
       params.set("category", mapType);
     }
 
-    if (filters.area) {
-      params.set("area", filters.area);
+    if (filters.areas.length) {
+      params.set("area", filters.areas.join(","));
     }
 
     if (filters.openNow) {

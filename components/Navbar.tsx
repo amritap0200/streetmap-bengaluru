@@ -17,16 +17,16 @@ export default function Navbar({ mapType, setMapType }: Props) {
   ];
 
   return (
-    <div className="pointer-events-none absolute left-1/2 top-4 z-[1000] min-w-[44rem] max-w-[calc(100%-1.5rem)] -translate-x-1/2 px-1">
-      <div className="pointer-events-auto grid grid-cols-1 gap-3 rounded-[2rem] bg-[#222222]/95 p-3 text-white shadow-[0_18px_40px_rgba(0,0,0,0.28)] ring-1 ring-black/10 backdrop-blur sm:grid-cols-[auto_1fr_auto] sm:items-center">
+    <div className="pointer-events-none absolute left-1/2 top-4 z-[1000] max-w-[calc(100%-1.5rem)] -translate-x-1/2 px-1 md:left-[62.5%] md:w-[calc(75%-2rem)] md:max-w-[40rem]">
+      <div className="pointer-events-auto grid grid-cols-1 gap-2 rounded-[2rem] bg-[#222222]/95 px-3 py-2 text-white shadow-[0_18px_40px_rgba(0,0,0,0.28)] ring-1 ring-black/10 backdrop-blur sm:grid-cols-[auto_1fr_auto] sm:items-center">
         <div className="flex items-center justify-start">
           <button
             type="button"
             onClick={() => setMapType("normal")}
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f4f0e8] text-[#111111] shadow-inner transition hover:scale-[1.03]"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f4f0e8] text-[#111111] shadow-inner transition hover:scale-[1.03]"
             aria-label="Reset map filter"
           >
-            <FiCompass className="text-lg" />
+            <FiCompass className="text-base" />
           </button>
         </div>
 
@@ -35,7 +35,7 @@ export default function Navbar({ mapType, setMapType }: Props) {
             <button
               key={type.value}
               onClick={() => setMapType(type.value)}
-              className={`rounded-full px-4 py-2 text-sm font-medium tracking-tight transition ${
+              className={`rounded-full px-4 py-1.5 text-sm font-medium tracking-tight transition ${
                 mapType === type.value
                   ? "bg-white text-[#111111]"
                   : "text-white/78 hover:bg-white/10 hover:text-white"
