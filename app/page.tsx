@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
+import Filters from "@/components/Filters";
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -12,24 +13,51 @@ const Map = dynamic(() => import("@/components/Map"), {
 export default function Home() {
   const [places, setPlaces] = useState([]);
   const [mapType, setMapType] = useState("normal");
+  const [filters, setFilters] = useState({
+    area: "",
+    openNow: false,
+    tag: "",
+    rating: ""
+  });
+
 
   useEffect(() => {
-     let url = "/api/places";
+    const params = new URLSearchParams();
 
     if (mapType !== "normal") {
-      url += `?category=${mapType}`;
+      params.set("category", mapType);
     }
+
+    if (filters.area) {
+      params.set("area", filters.area);
+    }
+
+    if (filters.openNow) {
+      params.set("openNow", "true");
+    }
+
+    if (filters.tag) {
+      params.set("tag", filters.tag);
+    }
+
+    if (filters.rating) {
+      params.set("rating", filters.rating);
+    }
+
+    const queryString = params.toString();
+    const url = queryString ? `/api/places?${queryString}` : "/api/places";
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched places:", data); // debug
         setPlaces(data);
       });
-  }, [mapType]);
+  }, [mapType, filters]);
 
   return (
     <div className="h-screen w-full">
       <Navbar mapType={mapType} setMapType={setMapType} />
+      <Filters filters={filters} setFilters={setFilters} />
       <Map places={places} />
     </div>
   );

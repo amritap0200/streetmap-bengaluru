@@ -25,6 +25,12 @@ body {
   font-family: var(--font-sans);
 }
 
+.map-container .leaflet-top.leaflet-left {
+  inset-inline-start: auto;
+  inset-inline-end: 16px;
+}
+
+.map-container .leaflet-top.leaflet-left,
 .map-container .leaflet-top.leaflet-right {
   top: 72px;
 }

@@ -11,6 +11,8 @@ export async function GET(req: NextRequest) {
     const mode = searchParams.get("mode");
     const area = searchParams.get("area");
     const openNow = searchParams.get("openNow");
+    const tag = searchParams.get("tag");
+    const rating = searchParams.get("rating");
 
     const query: Record<string, unknown> = {};
 
@@ -20,6 +22,10 @@ export async function GET(req: NextRequest) {
 
     if (area) {
       query.area = area.trim().toLowerCase();
+    }
+
+    if (tag) {
+      query.tags = tag.trim().toLowerCase();
     }
 
     if (mode) {
@@ -43,6 +49,14 @@ export async function GET(req: NextRequest) {
 
       query.openTime = { $lte: currentTime };
       query.closeTime = { $gte: currentTime };
+    }
+
+    if (rating) {
+      const minRating = Number(rating);
+
+      if (!Number.isNaN(minRating)) {
+        query.rating = { $gte: minRating };
+      }
     }
 
     const places = await Place.find(query).lean();
