@@ -76,7 +76,7 @@ export default function Filters({ filters, setFilters }: Props) {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto rounded-[1.5rem] bg-white/4">
+        <div className="flex-1 overflow-y-auto rounded-[1.5rem]">
           <div className="px-4 py-3">
             <label className="flex cursor-pointer items-center justify-between gap-4">
               <p className="text-sm font-semibold text-white/92">Open Now</p>
@@ -122,13 +122,10 @@ export default function Filters({ filters, setFilters }: Props) {
                 </button>
 
                 {isOpen && (
-                  <div className="bg-white/6 px-4 py-4">
+                  <div className="px-4 py-4">
                     {section.id === "location" && (
                       <div>
-                        <p className="mb-2 text-sm font-semibold text-white/90">
-                          Choose locations
-                        </p>
-                        <div className="space-y-2">
+                        <div className="city-scrollbar max-h-[15.5rem] space-y-2 overflow-y-auto pr-1">
                           {locationOptions.map((area) => {
                             const normalizedArea = area.toLowerCase();
                             const checked = filters.areas.includes(normalizedArea);

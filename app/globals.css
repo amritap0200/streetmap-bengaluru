@@ -25,6 +25,80 @@ body {
   font-family: var(--font-sans);
 }
 
+* {
+  scrollbar-color: #8a8a8a #d8d8d8;
+  scrollbar-width: auto;
+}
+
+*::-webkit-scrollbar {
+  width: 18px;
+  height: 18px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f3f3f3;
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+  border: 5px solid #f3f3f3;
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #747474;
+}
+
+*::-webkit-scrollbar-corner {
+  background: #f3f3f3;
+}
+
+.city-scrollbar {
+  scrollbar-color: #e9dddd #222222;
+  scrollbar-width: auto;
+}
+
+.city-scrollbar::-webkit-scrollbar {
+  width: 16px;
+}
+
+.city-scrollbar::-webkit-scrollbar-track {
+  background: #0f0f0f;
+  border-radius: 9999px;
+}
+
+.city-scrollbar::-webkit-scrollbar-thumb {
+  background: #b8b8b8;
+  border: 3px solid #0f0f0f;
+  border-radius: 9999px;
+}
+
+.city-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d0d0d0;
+}
+
+.city-scrollbar::-webkit-scrollbar-button:single-button {
+  display: block;
+  height: 16px;
+  background-color: #393939;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 8px 8px;
+}
+
+.city-scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23ffffff' d='M4 1 7 5H1z'/%3E%3C/svg%3E");
+}
+
+.city-scrollbar::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23ffffff' d='M1 3h6L4 7z'/%3E%3C/svg%3E");
+}
+
 .map-container .leaflet-top.leaflet-left {
   inset-inline-start: auto;
   inset-inline-end: 16px;
