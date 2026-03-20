@@ -3,16 +3,29 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Filters from "@/components/Filters";
+import FooterModes from "@/components/FooterModes";
+
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
 });
 
+function getCurrentMode() {
+  const hour = new Date().getHours();
+
+  if (hour >= 5 && hour < 11) return "morning";
+  if (hour >= 11 && hour < 16) return "noon";
+  if (hour >= 16 && hour < 20) return "evening";
+  return "night";
+}
 
 
 export default function Home() {
   const [places, setPlaces] = useState([]);
   const [mapType, setMapType] = useState("normal");
+  const [modeEnabled, setModeEnabled] = useState(true);
+  const [mode, setMode] = useState(getCurrentMode());
+
   const [filters, setFilters] = useState({
     areas: [] as string[],
     openNow: false,
@@ -26,6 +39,11 @@ export default function Home() {
 
     if (mapType !== "normal") {
       params.set("category", mapType);
+    }
+
+    // mode (footer)
+    if (modeEnabled && mode) {
+      params.set("mode", mode);
     }
 
     if (filters.areas.length) {
@@ -50,14 +68,21 @@ export default function Home() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        console.log("Final Query:", url);
         setPlaces(data);
       });
-  }, [mapType, filters]);
+  }, [mapType, modeEnabled, mode, filters]);
 
   return (
     <div className="h-screen w-full">
       <Navbar mapType={mapType} setMapType={setMapType} />
       <Filters filters={filters} setFilters={setFilters} />
+      <FooterModes
+        modeEnabled={modeEnabled}
+        setModeEnabled={setModeEnabled}
+        mode={mode}
+        setMode={setMode}
+      />
       <Map places={places} />
     </div>
   );

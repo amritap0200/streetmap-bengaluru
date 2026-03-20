@@ -41,10 +41,10 @@ export async function GET(req: NextRequest) {
 
     if (mode) {
       const modeTags: Record<string, string[]> = {
-        morning: ["breakfast", "park", "gym"],
-        noon: ["lunch", "work"],
-        evening: ["snacks", "dessert"],
-        night: ["dinner", "late-night"],
+        morning: ["breakfast", "park", "gym", "tea"],
+        noon: ["lunch", "work", "tea"],
+        evening: ["snacks", "dessert", "park"],
+        night: ["dinner", "late-night", "pub", "bar"],
       };
 
       const tags = modeTags[mode];
