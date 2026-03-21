@@ -1,13 +1,16 @@
 "use client";
 
 import { FiCompass } from "react-icons/fi";
+import { signOut, useSession } from "next-auth/react";
 
 type Props = {
   mapType: string;
   setMapType: (type: string) => void;
+  onOpenAuth: () => void;
 };
 
-export default function Navbar({ mapType, setMapType }: Props) {
+export default function Navbar({ mapType, setMapType, onOpenAuth }: Props) {
+  const { data: session, status } = useSession();
   const types = [
     { value: "normal", label: "Explore" },
     { value: "cafe", label: "Cafe" },
@@ -46,7 +49,30 @@ export default function Navbar({ mapType, setMapType }: Props) {
           ))}
         </div>
 
-        <div className="hidden sm:block" />
+        <div className="flex items-center justify-end gap-2">
+          {status === "authenticated" && session.user ? (
+            <>
+              <span className="hidden text-sm text-white/72 md:inline">
+                Hi, {session.user.name?.split(" ")[0] || "Explorer"}
+              </span>
+              <button
+                type="button"
+                onClick={() => signOut({ callbackUrl: "/" })}
+                className="rounded-full border border-white/15 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              onClick={onOpenAuth}
+              className="rounded-full bg-[#f4f0e8] px-4 py-1.5 text-sm font-medium text-[#111111] transition hover:scale-[1.02]"
+            >
+              {status === "loading" ? "Loading..." : "Sign in"}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

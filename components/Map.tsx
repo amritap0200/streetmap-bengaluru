@@ -44,29 +44,29 @@ const lightMapStyle: StyleSpecification = {
 };
 
 const TOGGLE_HEIGHT = 120;
-const KNOB_SIZE = 48;
-const KNOB_MARGIN = 5;
+const KNOB_SIZE = 40;
+const KNOB_MARGIN = 6;
 
 function SunIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="h-7 w-7"
-      viewBox="0 0 48 48"
+      className="h-[26px] w-[26px]"
+      viewBox="0 0 28 28"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
+      stroke="#111"
+      strokeWidth="2"
       strokeLinecap="round"
     >
-      <circle cx="24" cy="24" r="9" />
-      <line x1="24" y1="4" x2="24" y2="10" />
-      <line x1="24" y1="38" x2="24" y2="44" />
-      <line x1="4" y1="24" x2="10" y2="24" />
-      <line x1="38" y1="24" x2="44" y2="24" />
-      <line x1="9.5" y1="9.5" x2="13.7" y2="13.7" />
-      <line x1="34.3" y1="34.3" x2="38.5" y2="38.5" />
-      <line x1="38.5" y1="9.5" x2="34.3" y2="13.7" />
-      <line x1="13.7" y1="34.3" x2="9.5" y2="38.5" />
+      <circle cx="14" cy="14" r="5.5" />
+      <line x1="14" y1="2" x2="14" y2="5.5" />
+      <line x1="14" y1="22.5" x2="14" y2="26" />
+      <line x1="2" y1="14" x2="5.5" y2="14" />
+      <line x1="22.5" y1="14" x2="26" y2="14" />
+      <line x1="5.5" y1="5.5" x2="8" y2="8" />
+      <line x1="20" y1="20" x2="22.5" y2="22.5" />
+      <line x1="22.5" y1="5.5" x2="20" y2="8" />
+      <line x1="8" y1="20" x2="5.5" y2="22.5" />
     </svg>
   );
 }
@@ -75,18 +75,18 @@ function MoonIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="h-7 w-7"
-      viewBox="0 0 48 48"
+      className="h-[26px] w-[26px]"
+      viewBox="0 0 28 28"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
+      stroke="#fff"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M36 26A15 15 0 1 1 22 12a11 11 0 0 0 14 14z" />
-      <line x1="32" y1="8" x2="32" y2="13" />
-      <line x1="29.5" y1="10.5" x2="34.5" y2="10.5" />
-      <circle cx="38" cy="17" r="1.5" fill="currentColor" stroke="none" />
+      <path d="M21 17A9 9 0 1 1 11 7a7 7 0 0 0 10 10z" />
+      <line x1="19" y1="5" x2="19" y2="8" />
+      <line x1="17.5" y1="6.5" x2="20.5" y2="6.5" />
+      <circle cx="23" cy="10" r="1" fill="#fff" stroke="none" />
     </svg>
   );
 }
@@ -135,7 +135,7 @@ export default function Map({ places }: { places: Place[] }) {
         <div
           aria-label={isNight ? "Switch to light map theme" : "Switch to dark map theme"}
           aria-checked={isNight}
-          className={`relative h-[100px] w-[52px] select-none ${
+          className={`relative h-[130px] w-[50px] select-none ${
             darkMapStyle ? "" : "opacity-50"
           }`}
           role="switch"
@@ -152,23 +152,34 @@ export default function Map({ places }: { places: Place[] }) {
               event.key === "ArrowDown"
             ) {
               event.preventDefault();
+
+              if (event.key === "ArrowUp") {
+                setTheme("light");
+                return;
+              }
+
+              if (event.key === "ArrowDown") {
+                setTheme("dark");
+                return;
+              }
+
               setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
             }
           }}
         >
           <div
-            className={`absolute inset-0 rounded-[30px] border-2 shadow-[0_14px_24px_rgba(0,0,0,0.18)] transition-[background-color,border-color] duration-500 ${
+            className={`absolute inset-0 rounded-[30px] border-[1.5px] shadow-[0_2px_8px_rgba(0,0,0,0.18)] transition-[background-color,border-color] duration-500 ${
               isNight
-                ? "border-[#111111] bg-[#111111]"
-                : "border-[#dddddd] bg-[#f0f0f0]"
+                ? "border-grey bg-[#111111]"
+                : "border-grey bg-[#f0f0f0]"
             }`}
           />
 
           <div
-            className={`absolute left-1/2 z-[2] flex h-[48px] w-[48px] -translate-x-1/2 items-center justify-center rounded-full border-2 transition-[top,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] ${
+            className={`absolute left-1/2 z-[2] flex h-[46px] w-[46px] -translate-x-1/2 items-center justify-center rounded-full border-[1.5px] transition-[top,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] ${
               isNight
-                ? "border-[#333333] bg-[#111111] text-white shadow-[0_2px_10px_rgba(0,0,0,0.38)]"
-                : "border-[#dddddd] bg-white text-[#111111] shadow-[0_2px_10px_rgba(0,0,0,0.12)]"
+                ? "border-[#333333] bg-[#111111] text-white shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
+                : "border-[#dddddd] bg-white text-[#111111] shadow-[0_1px_6px_rgba(0,0,0,0.12)]"
             }`}
             style={{
               top: isNight ? TOGGLE_HEIGHT - KNOB_SIZE - KNOB_MARGIN : KNOB_MARGIN,

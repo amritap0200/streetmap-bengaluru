@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Filters from "@/components/Filters";
 import FooterModes from "@/components/FooterModes";
-
+import AuthModal from "@/components/AuthModal";
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -25,6 +25,7 @@ export default function Home() {
   const [mapType, setMapType] = useState("normal");
   const [modeEnabled, setModeEnabled] = useState(true);
   const [mode, setMode] = useState(getCurrentMode());
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const [filters, setFilters] = useState({
     areas: [] as string[],
@@ -75,7 +76,11 @@ export default function Home() {
 
   return (
     <div className="h-screen w-full">
-      <Navbar mapType={mapType} setMapType={setMapType} />
+      <Navbar
+        mapType={mapType}
+        setMapType={setMapType}
+        onOpenAuth={() => setIsAuthModalOpen(true)}
+      />
       <Filters filters={filters} setFilters={setFilters} />
       <FooterModes
         modeEnabled={modeEnabled}
@@ -84,6 +89,10 @@ export default function Home() {
         setMode={setMode}
       />
       <Map places={places} />
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+      />
     </div>
   );
 }
