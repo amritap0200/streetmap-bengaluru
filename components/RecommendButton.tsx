@@ -230,11 +230,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
             transform: bubbleVisible ? "translateY(0) scale(1)" : "translateY(4px) scale(0.97)",
             transition: "opacity 350ms ease, transform 350ms ease",
           }}
-          className="
-            relative bg-white text-[#111] text-xs font-medium
-            px-3.5 py-2 rounded-2xl rounded-br-sm shadow-lg
-            whitespace-nowrap select-none pointer-events-none
-          "
+          className="relative whitespace-nowrap rounded-2xl rounded-br-sm bg-white px-3.5 py-2 text-xs font-medium text-[#111] shadow-lg select-none pointer-events-none"
         >
           {BUBBLE_MESSAGES[bubbleIdx]}
           {/* Bubble tail */}
@@ -251,14 +247,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
             background: "linear-gradient(135deg, #f97316 0%, #ef4444 50%, #ec4899 100%)",
             boxShadow: "0 0 24px rgba(249,115,22,0.45), 0 4px 16px rgba(0,0,0,0.4)",
           }}
-          className="
-            w-14 h-14 rounded-full
-            flex items-center justify-center
-            text-white text-2xl
-            hover:scale-110 active:scale-95
-            transition-transform duration-150
-            animate-pulse-slow
-          "
+          className="flex h-14 w-14 items-center justify-center rounded-full text-2xl text-white transition-transform duration-150 hover:scale-110 active:scale-95 animate-pulse-slow"
         >
           ✦
         </button>
@@ -273,16 +262,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
           {/* Click outside to close */}
           <div className="absolute inset-0" onClick={() => setOpen(false)} />
 
-          <div
-            className="
-              relative z-10
-              w-full sm:w-[480px]
-              max-h-[90vh] overflow-y-auto
-              bg-[#0f0f0f] border border-white/10
-              rounded-t-3xl sm:rounded-3xl
-              shadow-2xl
-            "
-          >
+          <div className="relative z-10 max-h-[90vh] w-full overflow-y-auto rounded-t-3xl border border-white/10 bg-[#0f0f0f] shadow-2xl sm:w-[480px] sm:rounded-3xl">
             {/* Warm glow top */}
             <div
               className="absolute top-0 left-0 right-0 h-32 rounded-t-3xl pointer-events-none"
@@ -335,15 +315,11 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                       onClick={() =>
                         setFilter("mood", filters.mood === m.id ? "" : m.id)
                       }
-                      className={`
-                        flex flex-col items-center gap-1.5 py-3 px-2
-                        rounded-xl border text-xs font-medium transition
-                        ${
-                          filters.mood === m.id
-                            ? "border-orange-400/60 bg-orange-400/10 text-white"
-                            : "border-white/8 text-white/45 hover:border-white/20 hover:text-white/70"
-                        }
-                      `}
+                      className={`flex flex-col items-center gap-1.5 rounded-xl border px-2 py-3 text-xs font-medium transition ${
+                        filters.mood === m.id
+                          ? "border-orange-400/60 bg-orange-400/10 text-white"
+                          : "border-white/8 text-white/45 hover:border-white/20 hover:text-white/70"
+                      }`}
                     >
                       <span className="text-xl">{m.icon}</span>
                       {m.label}
@@ -362,14 +338,11 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                     <button
                       key={r.km}
                       onClick={() => setFilter("radiusKm", r.km)}
-                      className={`
-                        px-3.5 py-1.5 rounded-full border text-xs transition
-                        ${
-                          filters.radiusKm === r.km
-                            ? "bg-white text-black border-white"
-                            : "border-white/10 text-white/45 hover:border-white/30 hover:text-white/70"
-                        }
-                      `}
+                      className={`rounded-full border px-3.5 py-1.5 text-xs transition ${
+                        filters.radiusKm === r.km
+                          ? "border-white bg-white text-black"
+                          : "border-white/10 text-white/45 hover:border-white/30 hover:text-white/70"
+                      }`}
                     >
                       {r.label}
                     </button>
@@ -387,14 +360,11 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                     <button
                       key={t.id}
                       onClick={() => setFilter("mode", t.id)}
-                      className={`
-                        px-3.5 py-1.5 rounded-full border text-xs transition
-                        ${
-                          filters.mode === t.id
-                            ? "bg-white text-black border-white"
-                            : "border-white/10 text-white/45 hover:border-white/30 hover:text-white/70"
-                        }
-                      `}
+                      className={`rounded-full border px-3.5 py-1.5 text-xs transition ${
+                        filters.mode === t.id
+                          ? "border-white bg-white text-black"
+                          : "border-white/10 text-white/45 hover:border-white/30 hover:text-white/70"
+                      }`}
                     >
                       {t.label}
                     </button>
@@ -412,14 +382,11 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                     <button
                       key={c.id}
                       onClick={() => setFilter("category", c.id)}
-                      className={`
-                        px-3.5 py-1.5 rounded-full border text-xs transition
-                        ${
-                          filters.category === c.id
-                            ? "bg-white text-black border-white"
-                            : "border-white/10 text-white/45 hover:border-white/30 hover:text-white/70"
-                        }
-                      `}
+                      className={`rounded-full border px-3.5 py-1.5 text-xs transition ${
+                        filters.category === c.id
+                          ? "border-white bg-white text-black"
+                          : "border-white/10 text-white/45 hover:border-white/30 hover:text-white/70"
+                      }`}
                     >
                       {c.label}
                     </button>
@@ -439,11 +406,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                       ? "rgba(255,255,255,0.08)"
                       : "linear-gradient(135deg, #f97316, #ef4444)",
                   }}
-                  className="
-                    w-full py-3.5 rounded-xl text-sm font-semibold text-white
-                    transition-opacity disabled:opacity-60
-                    flex items-center justify-center gap-2
-                  "
+                  className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-semibold text-white transition-opacity disabled:opacity-60"
                 >
                   {loading ? (
                     <>
@@ -485,12 +448,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                         <button
                           key={place._id}
                           onClick={() => handlePickPlace(place)}
-                          className="
-                            w-full text-left
-                            bg-white/4 hover:bg-white/8
-                            border border-white/8 hover:border-white/15
-                            rounded-2xl p-4 transition group
-                          "
+                          className="group w-full rounded-2xl border border-white/8 bg-white/4 p-4 text-left transition hover:border-white/15 hover:bg-white/8"
                         >
                           <div className="flex items-start justify-between gap-3">
                             <div className="flex-1 min-w-0">
@@ -560,13 +518,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                   <button
                     onClick={handleRegenerate}
                     disabled={loading}
-                    className="
-                      flex-1 py-2.5 rounded-xl border border-white/15
-                      text-white/60 text-xs font-medium
-                      hover:bg-white/5 hover:text-white
-                      transition disabled:opacity-40
-                      flex items-center justify-center gap-1.5
-                    "
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 py-2.5 text-xs font-medium text-white/60 transition hover:bg-white/5 hover:text-white disabled:opacity-40"
                   >
                     {loading ? (
                       <span className="animate-spin inline-block">⟳</span>
@@ -576,12 +528,7 @@ export default function RecommendButton({ onPlaceSelect, mapRef }: Props) {
                   </button>
                   <button
                     onClick={handleReset}
-                    className="
-                      flex-1 py-2.5 rounded-xl border border-white/8
-                      text-white/35 text-xs font-medium
-                      hover:bg-white/5 hover:text-white/60
-                      transition
-                    "
+                    className="flex-1 rounded-xl border border-white/8 py-2.5 text-xs font-medium text-white/35 transition hover:bg-white/5 hover:text-white/60"
                   >
                     ↺ Reset filters
                   </button>
