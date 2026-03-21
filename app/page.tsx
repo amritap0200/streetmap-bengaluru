@@ -5,7 +5,9 @@ import Navbar from "@/components/Navbar";
 import Filters from "@/components/Filters";
 import FooterModes from "@/components/FooterModes";
 import AuthModal from "@/components/AuthModal";
-import SearchSidebar from "@/components/SearchSidebar";
+import { useRouter } from "next/navigation";
+
+// DO NOT call hooks outside component body.
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -42,6 +44,7 @@ type Place = {
 };
 
 export default function Home() {
+  const router = useRouter();
   const [places, setPlaces] = useState<Place[]>([]);
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
   const [mapType, setMapType] = useState("normal");
@@ -119,10 +122,20 @@ export default function Home() {
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
       />
-      <SearchSidebar
-        onFlyTo={handleFlyTo}
-        onPlaceSelect={(place) => setSelectedPlace(place)}
-      />
+      <button
+        onClick={() => router.push("/add")}
+        className="
+        fixed bottom-6 left-6 z-[1000]
+        w-12 h-12 rounded-full
+        bg-[#111]/95 backdrop-blur-md border border-white/15
+        text-white text-2xl font-light
+        flex items-center justify-center
+        hover:bg-white hover:text-black
+        transition-all duration-200 shadow-xl select-none
+        "
+        >
+        +
+      </button>
     </div>
   );
 }

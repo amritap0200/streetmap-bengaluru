@@ -59,7 +59,8 @@ const PlaceSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  osmId: { type: String, default: null },
 });
 
 PlaceSchema.index({ name: "text", description: "text", tags: "text", area: "text" });
